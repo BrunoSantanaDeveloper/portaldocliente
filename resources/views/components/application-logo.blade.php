@@ -1,0 +1,1 @@
+<img src="{{ asset('storage/images/Logo_LAS_branca.svg') }}"   alt="logo"    width="100"    height= "55" >
