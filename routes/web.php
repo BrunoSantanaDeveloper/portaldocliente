@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Receivement;
+use App\Http\Controllers\Winthor\ClientWinthorController;
+use App\Http\Controllers\Winthor\ReceivementWinthorController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +26,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+// Winthor API
+Route::get('/clients', [ClientWinthorController::class, 'getClients'])->name('clients.getclients');
+Route::post('/client-register-validate', [ClientWinthorController::class, 'registerValidate'])->name('clients.client-register-validate');
+Route::get('/ar/{page}', [ReceivementWinthorController::class, 'getReceivement'])->name('receivement.getReceivement');
+Route::get('/sales-order/{nota}', [ReceivementWinthorController::class, 'getItemOrder'])->name('receivement.getItemOrder');
