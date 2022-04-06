@@ -59,7 +59,101 @@ jQuery(document).ready(function($){
       }
     });
   });
+
+  
+
 });
+
+
+  // Aprove Order
+$('.ar-approve-button').click(function () {
+  var nota = $(this).attr('nf');
+  var order = $(this).attr('order');
+  Swal.fire({
+    title: 'Confirme!',
+    text: "Você quer mesmo aprovar este pedido?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sim, Aprovar!',
+    cancelButtonText: 'Agora Não!',
+    confirmButtonClass: 'btn btn-success mt-2',
+    cancelButtonClass: 'btn btn-danger ms-2 mt-2',
+    buttonsStyling: false,
+}).then(function (result) {
+    if (result.value) {
+
+      $.ajax({
+        url: '/approve_order/'+ nota + '/' + order,
+        dataType: 'json',
+        success: function (data) {
+          console.log(data)
+          Swal.fire({
+            title: 'Aprovado!',
+            text: 'O Pedido foi Aprovado.',
+            icon: 'success',
+          }).then(function (result) {
+            location.reload(true);
+          });
+        },
+        error: function (data) {
+          console.log(data)
+          Swal.fire({
+            title: 'Opa!',
+            text: 'Ocorreu algum problema. Tente novamente ou enrtre em contato com o suporte',
+            icon: 'warning',
+          })
+        }
+      });
+
+
+        
+      } else if (
+        // Read more about handling dismissals
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        Swal.fire({
+          title: 'Aprovação Cancelada',
+          text: 'Este pedido ainda consta como PENDENTE :)',
+          icon: 'error',
+        })
+      }
+});
+    });
+
+
+      // Reject Order
+$('.ar-reject-button').click(function () {
+  var nota = $(this).attr('nf');
+  var order = $(this).attr('order');
+  Swal.fire({
+    title: 'Confirme!',
+    text: "Você quer mesmo reprovar este pedido?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sim, Reprovar!',
+    cancelButtonText: 'Agora Não!',
+    confirmButtonClass: 'btn btn-success mt-2',
+    cancelButtonClass: 'btn btn-danger ms-2 mt-2',
+    buttonsStyling: false,
+}).then(function (result) {
+    if (result.value) {
+      $('.order-reject-modal').modal('show');
+      $('#nf_reprove').val(nota);
+      $('#erp_order_reprove').val(order);
+      $('#note').val('');
+        
+      } else if (
+        // Read more about handling dismissals
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        Swal.fire({
+          title: 'Reprovação Cancelada',
+          text: 'Este pedido ainda consta como PENDENTE :)',
+          icon: 'error',
+        })
+      }
+});
+    });
 
 function warningMessage(text){
   //Warning Message

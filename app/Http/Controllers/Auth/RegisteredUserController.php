@@ -52,7 +52,8 @@ class RegisteredUserController extends Controller
         $client = Clients::create([
             'name_cli' => $request->name,
             'id_user' => $user_id,
-            'cgc' => $request->cgc
+            'cgc' => $request->cgc,
+            'id_erp' => $request->cli
         ]);
 
         event(new Registered($user));

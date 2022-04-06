@@ -41,7 +41,7 @@
                                                 <td>{{$object->NOTA_FISCAL}}</td>
                                                 <td>{{date('d/m/Y', strtotime($object->DATA_FATURAMENTO))}}</td>
                                                 <td>{{$object->VALOR_NOTA}}</td>
-                                                <td></td>
+                                                <td><span class="badge bg-{{$object->status_class}} font-size-12">{{$object->status}}</span></td>
                                                 <td></td>
                                                 <td class="text-center">
                                                     <div class="dropdown">
@@ -51,8 +51,8 @@
                                                         <div class="dropdown-menu dropdown-menu-end" style="">
                                                             <a class="dropdown-item ar-details-button" type="button" data-id="{{$object->NOTA_FISCAL}}"><i class="bx bx-detail font-size-16 align-middle me-1"></i> <span>Mais Detalhes</span></a>
                                                             <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item" href="#"><i class="bx bx-check-circle font-size-16 align-middle text-success me-1"></i> <span>Aprovar</span></a>
-                                                            <a class="dropdown-item" href="#"><i class="bx bx-x-circle font-size-16 align-middle text-danger me-1"></i> <span>Rejeitar</span></a>
+                                                            <a class="dropdown-item ar-approve-button" type="button" nf="{{$object->NOTA_FISCAL}}" order="{{$object->PEDIDO_VENDA}}"><i class="bx bx-check-circle font-size-16 align-middle text-success me-1"></i> <span>Aprovar</span></a>
+                                                            <a class="dropdown-item ar-reject-button" type="button" nf="{{$object->NOTA_FISCAL}}" order="{{$object->PEDIDO_VENDA}}"><i class="bx bx-x-circle font-size-16 align-middle text-danger me-1"></i> <span>Rejeitar</span></a>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -76,7 +76,7 @@
                                 <a href="{{$LinkPreviousPage}}" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
                             </li>
                             <li class="page-item {{$FirstPage}}">
-                                <a href="{{route('receivement.getReceivement',['page' => 1])}}" class="page-link"><b>1</b></a>
+                                <a href="{{route('receivement.get-receivement',['page' => 1])}}" class="page-link"><b>1</b></a>
                             </li>
                             <li class="page-item {{$ActivePage}}">
                                 <a href="{{$LinkAtualPage}}" class="page-link">{{$AtualPage}}</a>
@@ -85,7 +85,7 @@
                                 <a href="{{$LinkNextPage}}" class="page-link">{{$NextPage}}</a>
                             </li>
                             <li class="page-item">
-                                <a href="{{route('receivement.getReceivement',['page' => $PageCount[0] ])}}" class="page-link text-bold"><b>{{$PageCount[0]}}</b></i></a>
+                                <a href="{{route('receivement.get-receivement',['page' => $PageCount[0] ])}}" class="page-link text-bold"><b>{{$PageCount[0]}}</b></i></a>
                             </li>
                             <li class="page-item">
                                 <a href="{{$LinkNextPage}}" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
@@ -100,3 +100,4 @@
     </div>
 </x-app-layout>
 @include('modals.ar.details')
+@include('modals.ar.reject-order')

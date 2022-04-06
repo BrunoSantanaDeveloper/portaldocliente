@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Winthor;
 
 use App\Http\Controllers\Controller;
 use App\Models\Clients;
+use App\Models\Orders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -37,7 +38,30 @@ class ReceivementWinthorController extends Controller
             /* dd($response->headers()['X-PageCount']); */
             $data['objects'] = $response->object();
             $data['header'] = $response->headers();
-            
+
+            $i = 0;
+            foreach($data['objects'] as $object){
+
+                $order = Orders::where('nf',$object->NOTA_FISCAL)->first();
+
+                if(isset($order)){
+                    $data['objects'][$i]->status = $order->status;
+                    if($order->status == 'APROVADO'){
+                        $data['objects'][$i]->status_class = 'success';
+                    }else{
+                        $data['objects'][$i]->status_class = 'danger';
+                    }
+                }else{
+                    $data['objects'][$i]->status = 'PENDENTE';
+                    $data['objects'][$i]->status_class = 'warning';
+                }
+
+                $i++;
+                
+            }
+
+            //dd($data['objects']);
+
             //--- START PAGINATION
             $data['PageCount'] = $response->headers()['X-PageCount'];
             if($page == 1){
@@ -46,18 +70,18 @@ class ReceivementWinthorController extends Controller
                 $data['AtualPage'] = 2;
                 $data['PreviousPage'] = 'disabled';
                 $data['LinkPreviousPage'] = '#';
-                $data['LinkAtualPage'] = route('receivement.getReceivement',['page' => $page + 1 ]);
+                $data['LinkAtualPage'] = route('receivement.get-receivement',['page' => $page + 1 ]);
                
             }else{
                 $data['FirstPage'] = '';
                 $data['ActivePage'] = 'active';
                 $data['AtualPage'] = $page;
                 $data['PreviousPage'] = '';
-                $data['LinkPreviousPage'] = route('receivement.getReceivement',['page' => $page - 1 ]);
-                $data['LinkAtualPage'] = route('receivement.getReceivement',['page' => $page ]);
+                $data['LinkPreviousPage'] = route('receivement.get-receivement',['page' => $page - 1 ]);
+                $data['LinkAtualPage'] = route('receivement.get-receivement',['page' => $page ]);
                 
             }
-            $data['LinkNextPage'] = route('receivement.getReceivement',['page' => $data['AtualPage']+1 ]);
+            $data['LinkNextPage'] = route('receivement.get-receivement',['page' => $data['AtualPage']+1 ]);
             $data['NextPage'] =  $data['AtualPage']+1;
             //--- END PAGINATION
         

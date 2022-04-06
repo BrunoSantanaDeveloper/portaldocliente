@@ -20,8 +20,7 @@
         <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
          <!-- Sweet Alert-->
         <link href="{{ asset('assets/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
-        <!-- form mask -->
-        <script src="assets/libs/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+        
         
 
         <!-- Scripts -->
@@ -35,7 +34,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
         <!-- Sweet Alerts js -->
-        <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
+        <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
 
         <script src="{{ asset('assets/js/app.js') }}"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
