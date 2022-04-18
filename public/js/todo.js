@@ -23,6 +23,8 @@ jQuery(document).ready(function($){
 
   $(".ar-details-button").on('click', function() {
     var iid = $(this).attr('data-id');
+    var order = $(this).attr('order');
+   
     $('.ar-details-modal').modal('show');
     $.ajax({
       url: '/sales-order/' + iid,
@@ -30,6 +32,8 @@ jQuery(document).ready(function($){
       success: function (data) {
         console.log(data)
 
+        $("#order_modal").html(order);
+        $("#nf_modal").html(iid);
         $("#items").html('');
         $.each( data, function( i, val ) {
           var newRow = $("<tr>");
@@ -45,7 +49,7 @@ jQuery(document).ready(function($){
           cols += '<td> '+ val.PERCIPI + '% </td>';
           cols += '<td> '+ val.PERCICM + '% </td>';
           cols += '<td> '+ val.NBM + ' </td>';
-          cols += '<td> '+ val.Valor_Item + ' </td>';
+          cols += '<td> R$ '+ val.Valor_Item + ' </td>';
       
           newRow.append(cols);
           $("#items").append(newRow);
@@ -69,6 +73,8 @@ jQuery(document).ready(function($){
 $('.ar-approve-button').click(function () {
   var nota = $(this).attr('nf');
   var order = $(this).attr('order');
+  var emitente = $(this).attr('emitente');
+  var emitenteEmail = $(this).attr('emitenteEmail');
   Swal.fire({
     title: 'Confirme!',
     text: "Você quer mesmo aprovar este pedido?",
@@ -130,7 +136,7 @@ $('.ar-reject-button').click(function () {
     text: "Você quer mesmo reprovar este pedido?",
     icon: 'warning',
     showCancelButton: true,
-    confirmButtonText: 'Sim, Reprovar!',
+    confirmButtonText: 'Sim, Rejeitar!',
     cancelButtonText: 'Agora Não!',
     confirmButtonClass: 'btn btn-success mt-2',
     cancelButtonClass: 'btn btn-danger ms-2 mt-2',

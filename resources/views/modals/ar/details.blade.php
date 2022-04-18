@@ -7,8 +7,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p class="mb-2">Nº Pedido de Venda: <span class="text-primary">#SK2540</span></p>
-                <p class="mb-4">NF: <span class="text-primary">000000</span></p>
+                <p class="mb-2">Nº Pedido de Venda: <span class="text-primary" id="order_modal"></span></p>
+                <p class="mb-4">NF: <span class="text-primary"id="nf_modal"></span></p>
 
                 <div class="table-responsive">
                     <table class="table align-middle table-nowrap">

@@ -8,6 +8,7 @@ use App\Models\Orders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class ReceivementWinthorController extends Controller
 {
@@ -21,6 +22,10 @@ class ReceivementWinthorController extends Controller
     public function getReceivement($page)
     {
 
+        if (!Auth::check()) {
+            return redirect('login');
+        }
+    
         $user = Auth::user()->id;
         $client = Clients::where('id_user',$user)->first();
 
@@ -105,13 +110,35 @@ class ReceivementWinthorController extends Controller
          
         if ($response->status() == 200) {
             /* dd($response->headers()['X-PageCount']); */
-           
-        
             echo $response;
         }
 
         return ;
 
+    }
+
+    public function getXml($ntrans){
+
+        $url = config('winthor.winthor_url').'api/Uteis/rotina?rotina=100003&filtros=where transacao  = '.$ntrans.' &paginado=false';
+
+        
+        // auth Winthor
+        $authWinthor = new AuthWinthorController();
+        $token = $authWinthor->Authenticate();
+        
+        $response = Http::withToken($token)->retry(2,100)->get($url);
+
+        
+         
+        if ($response->status() == 200) {
+            //dd($response->object()[0]->XML);
+          
+            Storage::put('files_xml/file.xml',$response->object()[0]->XML);
+            return Storage::download('files_xml/file.xml');
+            /* return $response; */
+        }
+
+        return ;
     }
     
 

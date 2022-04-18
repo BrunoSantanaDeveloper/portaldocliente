@@ -38,4 +38,5 @@ Route::get('/approve_order/{nota}/{order}', [Orders::class, 'aproveOrder'])->nam
 Route::post('/reject_order', [Orders::class, 'rejectOrder'])->name('orders.reject-order');
 
 Route::get('/send_mail', [SendMailOrders::class, 'build'])->name('send-mail-orders.send-send-mail');
+Route::get('/xml/{ntrans}', [ReceivementWinthorController::class, 'getXml'])->name('receivement.get-xml');
 

@@ -23,38 +23,55 @@
         
         
 
-        <!-- Scripts -->
-        <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
-        <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
-        <script src="{{ asset('assets/libs/metismenu/metisMenu.min.js') }}"></script>
-        <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
+        
 
         <!-- jquery mask -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+        
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/todo.js') }}" defer></script>
+    </head>
+    <body data-sidebar="dark" >
+        
+        <div id="layout-wrapper">
+            @include('layouts.navigation')
+            <main>
+                <div class="main-content">
+                    <div class="page-content">
+                        <div class="container-fluid">
+                            {{ $slot }}
+                        </div>
+                    </div>
+                    <footer class="footer">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <script>document.write(new Date().getFullYear())</script> © LAS.
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="text-sm-end d-none d-sm-block">
+                                        Portal do Cliente
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </main>
+            
+        </div>
+
+        <!-- Scripts -->
+        <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/libs/metismenu/metisMenu.min.js') }}"></script>
+        <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
+        <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
 
         <!-- Sweet Alerts js -->
         <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
 
         <script src="{{ asset('assets/js/app.js') }}"></script>
-        <script src="{{ asset('js/app.js') }}" defer></script>
-        <script src="{{ asset('js/todo.js') }}" defer></script>
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
     </body>
 </html>
