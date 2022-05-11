@@ -14,7 +14,7 @@
 
             <!-- Name -->
             <div>
-                <x-label for="name" :value="__('CPF/CNPJ')" />
+                <x-label for="name" :value="__('CPF/CNPJ TESTE')" />
 
                 <x-input id="cgc" class="block mt-1 w-full cgc_register" type="text" name="cgc" :value="old('cgc')" required autofocus />
                 <x-input id="cli" class="block mt-1 w-full cli" name="cli" :value="old('cli')" hidden autofocus />
