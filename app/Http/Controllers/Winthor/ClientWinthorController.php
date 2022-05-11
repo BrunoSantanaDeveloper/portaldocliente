@@ -77,10 +77,10 @@ class ClientWinthorController extends Controller
         $authWinthor = new AuthWinthorController();
         $token = $authWinthor->Authenticate();
 
-        dd($response->object());
-        
+       
+
          $response = Http::withToken($token)->retry(2,100)->get($url);
-         
+         dd($response->object());
         /*if ($response->status() == 200) {
             dd($response->object());
            foreach($response->object() as $clients){
