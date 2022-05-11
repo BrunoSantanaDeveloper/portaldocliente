@@ -81,8 +81,8 @@ class ClientWinthorController extends Controller
          $response = Http::withToken($token)->retry(2,100)->get($url);
          
         if ($response->status() == 200) {
-            //dd($response->object()) ;
-            foreach($response->object() as $clients){
+            dd($response->object());
+           /**foreach($response->object() as $clients){
                 if($clients->cgcent == $request->cgc){
                     $response = [
                         'cliente' => $clients->cliente,
@@ -92,8 +92,8 @@ class ClientWinthorController extends Controller
                 }else{
                     return false;
                 }
-                //return json_encode($clients->cgcent);
-            }
+                return json_encode($clients->cgcent);
+            }*/
         }
         return ;    
 
