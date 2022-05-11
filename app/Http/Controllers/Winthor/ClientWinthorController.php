@@ -77,12 +77,13 @@ class ClientWinthorController extends Controller
         $authWinthor = new AuthWinthorController();
         $token = $authWinthor->Authenticate();
 
+        dd($response->object());
         
          $response = Http::withToken($token)->retry(2,100)->get($url);
          
-        if ($response->status() == 200) {
+        /*if ($response->status() == 200) {
             dd($response->object());
-           /**foreach($response->object() as $clients){
+           foreach($response->object() as $clients){
                 if($clients->cgcent == $request->cgc){
                     $response = [
                         'cliente' => $clients->cliente,
@@ -93,9 +94,9 @@ class ClientWinthorController extends Controller
                     return false;
                 }
                 return json_encode($clients->cgcent);
-            }*/
+            }
         }
-        return ;    
+        return;*/    
 
     }
 
