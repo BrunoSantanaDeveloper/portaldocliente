@@ -4,7 +4,7 @@ jQuery(document).ready(function($){
   let text
   $(".cgc_register").on('change', function() {
     $.ajax({
-      type: "POST",
+      type: "GET",
       url: '/client-register-validate',
       data: $('#register-form').serialize(),
       dataType: 'json',
