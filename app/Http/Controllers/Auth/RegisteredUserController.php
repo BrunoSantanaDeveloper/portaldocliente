@@ -50,7 +50,7 @@ class RegisteredUserController extends Controller
 
        
         $user_id = $user->id;
-        ddd($user_id, $user)
+        ddd($user_id);
       /*   $client = Clients::create([
             'name_cli' => $request->name,
             'id_user' => $user_id,
