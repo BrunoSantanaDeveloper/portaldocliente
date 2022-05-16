@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-    
+
         $user = User::create([
             'cgc' => $request->cgc,
             'name' => $request->name,
@@ -48,9 +48,9 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-       
+
         $user_id = $user->id;
-        ddd($user_id);
+        dd($user_id);
       /*   $client = Clients::create([
             'name_cli' => $request->name,
             'id_user' => $user_id,
@@ -62,6 +62,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME); 
+        return redirect(RouteServiceProvider::HOME);
     }
 }
