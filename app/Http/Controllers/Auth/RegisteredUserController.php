@@ -57,11 +57,11 @@ class RegisteredUserController extends Controller
             'cgc' => $request->cgc,
             'id_erp' => $request->cli
         ]);
- */
+
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::HOME);  */
     }
 }
