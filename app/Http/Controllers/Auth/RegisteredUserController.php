@@ -41,8 +41,8 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
-        dd($request); */
+ */
+        dd($request);
 
         $user = User::create([
             'name' => $request->name,
@@ -50,7 +50,7 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        dd(DB::getQueryLog());
+        //dd(DB::getQueryLog());
 
 
         $user_id = $user->id;
