@@ -35,6 +35,8 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+
+        dd($request);
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -50,7 +52,7 @@ class RegisteredUserController extends Controller
 
 
         $user_id = $user->id;
-        dd($user_id);
+
       /*   $client = Clients::create([
             'name_cli' => $request->name,
             'id_user' => $user_id,
