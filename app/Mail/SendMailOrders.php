@@ -36,7 +36,7 @@ class SendMailOrders extends Mailable
         Mail::send('mails.orders', $data, function ($message) {
             $message->from('noreply@portaldocliente.las.app.br', 'LOGÍSTICA - LAS');
             $message->sender('noreply@portaldocliente.las.app.br', 'LOGÍSTICA - LAS');
-            $message->to('bsantana.it@gmail.com', 'Bruno Santana');
+            $message->to('ti@lasdobrasil.com.br', 'TI LAS');
             $message->subject('Pedido Aprovado');
             $message->priority(1);
         });
