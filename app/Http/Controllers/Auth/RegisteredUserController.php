@@ -35,33 +35,46 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+
+       /*  $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-    
+ */
+
+
         $user = User::create([
-            'cgc' => $request->cgc,
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        dd($user);
+        //dd(DB::getQueryLog());
 
-       
+
         $user_id = $user->id;
+<<<<<<< HEAD
         /*ddd($user_id);*/
          $client = Clients::create([
+=======
+
+        $client = Clients::create([
+>>>>>>> 9f0772c23be16a99d4f13dbf013a4620f3ae625a
             'name_cli' => $request->name,
             'id_user' => $user_id,
             'cgc' => $request->cgc,
             'id_erp' => $request->cli
         ]);
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 9f0772c23be16a99d4f13dbf013a4620f3ae625a
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME); 
+        return redirect(RouteServiceProvider::HOME);
     }
 }
