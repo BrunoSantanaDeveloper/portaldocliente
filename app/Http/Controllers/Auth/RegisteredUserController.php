@@ -53,14 +53,23 @@ class RegisteredUserController extends Controller
         //dd(DB::getQueryLog());
 
         $user_id = $user->id;
+<<<<<<< HEAD
+        /*ddd($user_id);*/
+         $client = Clients::create([
+=======
 
         $client = Clients::create([
+>>>>>>> 9f0772c23be16a99d4f13dbf013a4620f3ae625a
             'name_cli' => $request->name,
             'id_user' => $user_id,
             'cgc' => $request->cgc,
             'id_erp' => $request->cli
         ]);
+<<<<<<< HEAD
+ 
+=======
 
+>>>>>>> 9f0772c23be16a99d4f13dbf013a4620f3ae625a
         event(new Registered($user));
 
         Auth::login($user);
