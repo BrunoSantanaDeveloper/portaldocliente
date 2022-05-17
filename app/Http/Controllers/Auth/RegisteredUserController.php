@@ -53,7 +53,7 @@ class RegisteredUserController extends Controller
         //dd(DB::getQueryLog());
 
         $user_id = $user->id;
-        dd($request->cli);
+        //dd($request->cli);
         $client = Clients::create([
             'name_cli' => $request->name,
             'id_user' => $user_id,
