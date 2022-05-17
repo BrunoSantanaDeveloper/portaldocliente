@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
+                    <div class="text-center text-sm text-black-500 sm:text-left">
                         <div class="flex items-center">
                             <img src="{{ asset('storage/images/logotipolas.svg') }}" alt="logo" class="d-inline"  style="height:1em">
 
@@ -79,7 +79,7 @@
                         </div>
                     </div>
 
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
+                    <div class="ml-4 text-center text-sm text-white-500 sm:text-right sm:ml-0">
                         Portal do Cliente V1.0
                     </div>
                 </div>
