@@ -13,5 +13,6 @@ class Clients extends Model
         'name_cli',
         'id_user',
         'cgc',
+        'id_erp',
     ];
 }
