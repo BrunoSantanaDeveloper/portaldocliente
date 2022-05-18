@@ -14,8 +14,9 @@ class Orders extends Controller
     public function aproveOrder($nota,$order,$emitente,$emitenteEmail){
 
         $user = Auth::user();
+        dd($user);
         $client = Clients::where('id_user',$user->id)->first();
-        dd($client);
+        
         $data = ['id_cli' => $client->id, 'nf' => $nota, 'erp_order' => $order, 'status' => "APROVADO", 'note' =>''];
         if(ModelsOrders::create($data)){
 
