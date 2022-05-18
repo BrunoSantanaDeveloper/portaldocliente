@@ -67,8 +67,8 @@ class Orders extends Controller
             Mail::send('mails.orders', $dataMail, function ($message) {
                 $message->from('noreply@portaldocliente.las.app.br', 'LOGÍSTICA - LAS');
                 $message->sender('noreply@portaldocliente.las.app.br', 'LOGÍSTICA - LAS');
-                $message->to('bsantana.it@gmail.com', 'Bruno Santana');
-                $message->subject('Pedido Regeitado');
+                $message->to('ti@lasdobrasil.com.br', 'TI LAS');
+                $message->subject('Pedido Rejeitado');
                 $message->priority(1);
             });
 

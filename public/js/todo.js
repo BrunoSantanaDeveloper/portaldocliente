@@ -105,7 +105,7 @@ $('.ar-approve-button').click(function () {
           console.log(data)
           Swal.fire({
             title: 'Opa!',
-            text: 'Ocorreu algum problema. Tente novamente ou enrtre em contato com o suporte',
+            text: 'Ocorreu algum problema. Tente novamente ou entre em contato com o suporte',
             icon: 'warning',
           })
         }
