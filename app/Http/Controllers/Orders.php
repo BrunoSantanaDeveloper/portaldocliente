@@ -15,7 +15,7 @@ class Orders extends Controller
 
         $user = Auth::user();
         $client = Clients::where('id_user',$user->id)->first();
-       
+       dd($client);
         
         $data = ['id_cli' => $client->id, 'nf' => $nota, 'erp_order' => $order, 'status' => "APROVADO", 'note' =>''];
         if(ModelsOrders::create($data)){
