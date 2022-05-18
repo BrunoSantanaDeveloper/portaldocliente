@@ -89,7 +89,7 @@ $('.ar-approve-button').click(function () {
     if (result.value) {
 
       $.ajax({
-        url: '/approve_order/'+ nota + '/' + order,
+        url: '/approve_order/'+ nota + '/' + order + '/' + emitente + '/' + emitenteEmail,
         dataType: 'json',
         success: function (data) {
           console.log(data)
