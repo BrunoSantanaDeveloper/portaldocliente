@@ -18,7 +18,6 @@ class Orders extends Controller
        
         
         $data = ['id_cli' => $client->id, 'nf' => $nota, 'erp_order' => $order, 'status' => "APROVADO", 'note' =>''];
-        dd($data);
         if(ModelsOrders::create($data)){
 
             $dataMail = [
@@ -31,7 +30,7 @@ class Orders extends Controller
                 'emitenteEmail' => $emitenteEmail,
                 
             ];
-            
+            dd($dataMail);
             Mail::send('mails.orders', $dataMail, function ($message,$emitente,$emitenteEmail) {
                 $user = Auth::user();
                 
@@ -40,7 +39,7 @@ class Orders extends Controller
                 $message->to('ti@lasdobrasil.com.br', 'TI - LAS');
                 $message->cc('logistica@lasdobrasil.com.br', 'LOGÍSTICA - LAS');
                 $message->cc('estoque@lasdobrasil.com.br', 'LOGÍSTICA - Estoque');
-                $message->cc($dataMail['emitente'] $dataMail['emitenteEmail'] = null);
+                $message->cc($dataMail['emitente'], $dataMail['emitenteEmail'] = null);
                 $message->subject('Pedido Aprovado');
                 $message->priority(1);
             });
