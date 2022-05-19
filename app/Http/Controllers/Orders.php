@@ -19,7 +19,7 @@ class Orders extends Controller
         
         $data = ['id_cli' => $client->id, 'nf' => $nota, 'erp_order' => $order, 'status' => "APROVADO", 'note' =>''];
         if(ModelsOrders::create($data)){
-         
+         dd($data);
             $dataMail = [
                 'name' => $client->name_cli,
                 'nf' => $nota,
