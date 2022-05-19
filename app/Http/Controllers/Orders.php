@@ -30,7 +30,6 @@ class Orders extends Controller
                 'emitenteEmail' => $emitenteEmail,
                 
             ];
-            dd($dataMail);
             Mail::send('mails.orders', $dataMail, function ($message,$emitente,$emitenteEmail) {
                 $user = Auth::user();
                 
