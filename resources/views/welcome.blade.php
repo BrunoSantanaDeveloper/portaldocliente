@@ -34,7 +34,7 @@
 
                 <div class="mt-8 bg-white overflow-hidden shadow sm:rounded-lg">
                     <div class="grid grid-cols-1 md:grid-cols-1 text-center">
-                        <div class="ml-4 text-lg leading-7 font-semibold">
+                        <div class="text-lg leading-7 font-semibold">
                             <p>Portal do Cliente</p>
                         </div>
                     </div>
