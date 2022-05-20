@@ -11,30 +11,42 @@ use Illuminate\Support\Facades\Mail;
 
 class Orders extends Controller
 {
-    public function aproveOrder($nota,$order,$emitente,$emitenteEmail){
+    /* public function aproveOrder($nota,$order,$emitente,$emitenteEmail){ */
+    public function aproveOrder($nota,$order){
 
         $user = Auth::user();
         $client = Clients::where('id_user',$user->id)->first();
-       
-        
+
+
         $data = ['id_cli' => $client->id, 'nf' => $nota, 'erp_order' => $order, 'status' => "APROVADO", 'note' =>''];
         if(ModelsOrders::create($data)){
-         
+
             $dataMail = [
                 'name' => $client->name_cli,
                 'nf' => $nota,
                 'erp_order' => $order,
                 'status' => 'APROVADO',
                 'note' =>'',
-                'emitente' => $emitente,
-                'emitenteEmail' => $emitenteEmail,
-                
-            ];
+                /* 'emitente' => $emitente,
+                'emitenteEmail' => $emitenteEmail, */
 
-           
-            Mail::send('mails.orders', $dataMail, function ($message,$emitente,$emitenteEmail) {
+            ];
+            Mail::send('mails.orders', $dataMail, function ($message) {
                 $user = Auth::user();
-                
+
+                $message->from('noreply@portaldocliente.las.app.br', 'LOGÍSTICA - LAS');
+                $message->sender('noreply@portaldocliente.las.app.br', 'LOGÍSTICA - LAS');
+                $message->to('ti@lasdobrasil.com.br', 'TI - LAS');
+                $message->cc('logistica@lasdobrasil.com.br', 'LOGÍSTICA - LAS');
+                $message->cc('estoque@lasdobrasil.com.br', 'LOGÍSTICA - Estoque');
+                //$message->cc($dataMail['emitente'], $dataMail['emitenteEmail'] = null);
+                $message->subject('Pedido Aprovado');
+                $message->priority(1);
+            });
+
+            /* Mail::send('mails.orders', $dataMail, function ($message,$emitente,$emitenteEmail) {
+                $user = Auth::user();
+
                 $message->from('noreply@portaldocliente.las.app.br', 'LOGÍSTICA - LAS');
                 $message->sender('noreply@portaldocliente.las.app.br', 'LOGÍSTICA - LAS');
                 $message->to($user->email, $user->name);
@@ -44,12 +56,12 @@ class Orders extends Controller
                 $message->cc($emitenteEmail, $name = null);
                 $message->subject('Pedido Aprovado');
                 $message->priority(1);
-            });
+            }); */
 
-            
+
             return true;
         }
-        
+
         return false;
     }
 
@@ -79,7 +91,7 @@ class Orders extends Controller
 
             return redirect('ar/1');
         }
-        
+
         return false;
     }
 }

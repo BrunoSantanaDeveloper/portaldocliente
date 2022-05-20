@@ -34,7 +34,8 @@ Route::get('/clients', [ClientWinthorController::class, 'getClients'])->name('cl
 Route::post('/client-register-validate', [ClientWinthorController::class, 'registerValidate'])->name('clients.client-register-validate');
 Route::get('/ar/{page}', [ReceivementWinthorController::class, 'getReceivement'])->name('receivement.get-receivement');
 Route::get('/sales-order/{nota}', [ReceivementWinthorController::class, 'getItemOrder'])->name('receivement.get-item-order');
-Route::get('/approve_order/{nota}/{order}/{emitente}/{emitenteEmail}', [Orders::class, 'aproveOrder'])->name('orders.aprove-order');
+/* Route::get('/approve_order/{nota}/{order}/{emitente}/{emitenteEmail}', [Orders::class, 'aproveOrder'])->name('orders.aprove-order');
+ */Route::get('/approve_order/{nota}/{order}', [Orders::class, 'aproveOrder'])->name('orders.aprove-order');
 Route::post('/reject_order', [Orders::class, 'rejectOrder'])->name('orders.reject-order');
 
 Route::get('/send_mail', [SendMailOrders::class, 'build'])->name('send-mail-orders.send-send-mail');
