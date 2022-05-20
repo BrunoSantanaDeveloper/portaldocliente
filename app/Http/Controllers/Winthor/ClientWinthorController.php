@@ -25,13 +25,13 @@ class ClientWinthorController extends Controller
         $authWinthor = new AuthWinthorController();
         $token = $authWinthor->Authenticate();
 
-        
+
          $response = Http::withToken($token)->retry(2,100)->get($url);
-         
+
         if ($response->status() == 200) {
 
             foreach($response->object() as $clients){
-                
+
                 return json_encode($clients);
                 /* if($clients['cgcent'] == $request->cgc){
                     return $clients['cliente']->object();
@@ -77,13 +77,13 @@ class ClientWinthorController extends Controller
         $authWinthor = new AuthWinthorController();
         $token = $authWinthor->Authenticate();
 
-       
+
 
          $response = Http::withToken($token)->retry(2,100)->get($url);
-         
+
 
         if ($response->status() == 200) {
-            //dd($response->object());
+            dd($response->object());
            foreach($response->object() as $clients){
                 if($clients->cgcent == $request->cgc){
                     $response = [
@@ -97,7 +97,7 @@ class ClientWinthorController extends Controller
                 return json_encode($clients->cgcent);
             }
         }
-        return; 
+        return;
 
     }
 
