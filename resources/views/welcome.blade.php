@@ -7,7 +7,7 @@
         <title>Portal do Cliente</title>
 
         <!-- favicon -->
-        <link rel="icon" type="image/x-icon" href="http://portaldocliente.las.app.br/assets/images/logotipolas.svg">
+        <link rel="icon" type="image/x-icon" href="http://portaldocliente.las.app.br/assets/images/Logo_favicon_LAS.png">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
