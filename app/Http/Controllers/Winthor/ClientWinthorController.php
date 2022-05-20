@@ -83,7 +83,7 @@ class ClientWinthorController extends Controller
 
 
         if ($response->status() == 200) {
-            dd($response->object());
+            //dd($response->object());
            foreach($response->object() as $clients){
                 if($clients->cgcent == $request->cgc){
                     $response = [
