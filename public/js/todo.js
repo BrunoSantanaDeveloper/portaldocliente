@@ -173,7 +173,7 @@ function warningMessage(text){
   })
 }
 
-//CPF/CNPJ AUTO MASK
+/*CPF/CNPJ AUTO MASK
 $("#cgc").keydown(function(){
   try {
       $("#cgc").unmask();
@@ -185,7 +185,18 @@ $("#cgc").keydown(function(){
       $("#cgc").mask("999.999.999-99");
   } else {
       $("#cgc").mask("99.999.999/9999-99");
-  }
+  }*/
+
+  $("#cpfcnpj").keypress(function(){
+    $("#cpfcnpj").unmask();
+    var tamanho = $("#cpfcnpj").val().length;
+
+    if(tamanho == 11){
+        $("#cpfcnpj").mask("999.999.99-99");
+    } else if(tamanho == 14){
+        $("#cpfcnpj").mask("99.999.999/9999-99");
+    }                   
+});
 
   // ajustando foco
   var elem = this;
