@@ -24,7 +24,7 @@ jQuery(document).ready(function($){
   $(".ar-details-button").on('click', function() {
     var iid = $(this).attr('data-id');
     var order = $(this).attr('order');
-   
+
     $('.ar-details-modal').modal('show');
     $.ajax({
       url: '/sales-order/' + iid,
@@ -38,7 +38,7 @@ jQuery(document).ready(function($){
         $.each( data, function( i, val ) {
           var newRow = $("<tr>");
           var cols = "";
-      
+
           cols += '<th scope="row">'+ val.Numseq + '</td>';
           cols += '<td> '+ val.Cod_Fab + ' </td>';
           cols += '<td> '+ val.Descricao + ' </td>';
@@ -50,13 +50,13 @@ jQuery(document).ready(function($){
           cols += '<td> '+ val.PERCICM + '% </td>';
           cols += '<td> '+ val.NBM + ' </td>';
           cols += '<td> R$ '+ val.Valor_Item + ' </td>';
-      
+
           newRow.append(cols);
           $("#items").append(newRow);
-      
+
           //return false;
       });
-        
+
       },
       error: function (data) {
         console.log(data)
@@ -64,7 +64,7 @@ jQuery(document).ready(function($){
     });
   });
 
-  
+
 
 });
 
@@ -89,7 +89,8 @@ $('.ar-approve-button').click(function () {
     if (result.value) {
 
       $.ajax({
-        url: '/approve_order/'+ nota + '/' + order + '/' + emitente + '/' + emitenteEmail,
+        /* url: '/approve_order/'+ nota + '/' + order + '/' + emitente + '/' + emitenteEmail, */
+        url: '/approve_order/'+ nota + '/' + order ,
         dataType: 'json',
         success: function (data) {
           console.log(data)
@@ -112,7 +113,7 @@ $('.ar-approve-button').click(function () {
       });
 
 
-        
+
       } else if (
         // Read more about handling dismissals
         result.dismiss === Swal.DismissReason.cancel
@@ -147,7 +148,7 @@ $('.ar-reject-button').click(function () {
       $('#nf_reprove').val(nota);
       $('#erp_order_reprove').val(order);
       $('#note').val('');
-        
+
       } else if (
         // Read more about handling dismissals
         result.dismiss === Swal.DismissReason.cancel

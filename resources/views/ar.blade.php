@@ -58,8 +58,10 @@
                                             <a class="dropdown-item ar-details-button" type="button" data-id="{{$object->NOTA_FISCAL}}" order="{{$object->PEDIDO_VENDA}}"><i class="bx bx-detail font-size-16 align-middle me-1"></i> <span>Mais Detalhes</span></a>
                                             <div class="dropdown-divider"></div>
                                             @if($object->status == "PENDENTE")
-                                            <a class="dropdown-item ar-approve-button" type="button"    nf="{{$object->NOTA_FISCAL}}" order="{{$object->PEDIDO_VENDA}}" emitente="{{$object->EMITENTE}}" emitenteEmail="{{$object->EMAIL}}"><i class="bx bx-check-circle font-size-16 align-middle text-success me-1"></i> <span>Aprovar</span></a>
-                                            <a class="dropdown-item ar-reject-button" type="button"     nf="{{$object->NOTA_FISCAL}}" order="{{$object->PEDIDO_VENDA}}" emitente="{{$object->EMITENTE}}" emitenteEmail="{{$object->EMAIL}}"><i class="bx bx-x-circle font-size-16 align-middle text-danger me-1"></i> <span>Rejeitar</span></a>
+                                            {{-- <a class="dropdown-item ar-approve-button" type="button"    nf="{{$object->NOTA_FISCAL}}" order="{{$object->PEDIDO_VENDA}}" emitente="{{$object->EMITENTE}}" emitenteEmail="{{$object->EMAIL}}"><i class="bx bx-check-circle font-size-16 align-middle text-success me-1"></i> <span>Aprovar</span></a>
+                                            <a class="dropdown-item ar-reject-button" type="button"     nf="{{$object->NOTA_FISCAL}}" order="{{$object->PEDIDO_VENDA}}" emitente="{{$object->EMITENTE}}" emitenteEmail="{{$object->EMAIL}}"><i class="bx bx-x-circle font-size-16 align-middle text-danger me-1"></i> <span>Rejeitar</span></a> --}}
+                                            <a class="dropdown-item ar-approve-button" type="button"    nf="{{$object->NOTA_FISCAL}}" order="{{$object->PEDIDO_VENDA}}" ><i class="bx bx-check-circle font-size-16 align-middle text-success me-1"></i> <span>Aprovar</span></a>
+                                            <a class="dropdown-item ar-reject-button" type="button"     nf="{{$object->NOTA_FISCAL}}" order="{{$object->PEDIDO_VENDA}}" ><i class="bx bx-x-circle font-size-16 align-middle text-danger me-1"></i> <span>Rejeitar</span></a>
                                             @endif
                                         </div>
                                     </div>
