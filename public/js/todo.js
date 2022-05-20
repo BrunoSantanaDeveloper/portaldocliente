@@ -173,7 +173,7 @@ function warningMessage(text){
   })
 }
 
-//*CPF/CNPJ AUTO MASK
+//CPF/CNPJ AUTO MASK
 $("#cgc").keydown(function(){
   try {
       $("#cgc").unmask();
@@ -185,7 +185,7 @@ $("#cgc").keydown(function(){
       $("#cgc").mask("999.999.999-99");
   } else {
       $("#cgc").mask("99.999.999/9999-99");
-  }*/
+  }
 
   // ajustando foco
   var elem = this;
