@@ -173,7 +173,7 @@ function warningMessage(text){
   })
 }
 
-/*CPF/CNPJ AUTO MASK
+//*CPF/CNPJ AUTO MASK
 $("#cgc").keydown(function(){
   try {
       $("#cgc").unmask();
