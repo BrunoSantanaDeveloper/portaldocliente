@@ -31,7 +31,7 @@ class Orders extends Controller
                 'emitenteEmail' => $emitenteEmail, */
 
             ];
-            Mail::send('mails.orders', $dataMail, function ($message,$emitente,$emitenteEmail) {
+            Mail::send('mails.orders', $dataMail, function ($message) {
                 $user = Auth::user();
 
                 $message->from('noreply@portaldocliente.las.app.br', 'LOGÍSTICA - LAS');
