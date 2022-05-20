@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2">   
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
+                        <div class="p-6 border-gray-200 dark:border-gray-700">
                             <div class="flex items-center">
                                 <img src="{{ asset('storage/images/logotipolas.svg') }}" alt="logo" class="d-inline"  style="height:1em">
                                 <a href="https://las.app.br" class="ml-1 underline">
@@ -78,7 +78,7 @@
                             </div>
                         </div>
 
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
+                        <div class="p-6 border-gray-200 dark:border-gray-700 md:border-l">
                             <div class="flex items-center">
                                 <div class="ml-4 text-center text-sm text-white-500 sm:text-right sm:ml-0">
                                     Portal do Cliente V1.0
