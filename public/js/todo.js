@@ -187,16 +187,14 @@ $("#cgc").keydown(function(){
       $("#cgc").mask("99.999.999/9999-99");
   }*/
 
-  $("#cpfcnpj").keypress(function(){
-    $("#cpfcnpj").unmask();
-    var tamanho = $("#cpfcnpj").val().length;
+  var options = {
+    onKeyPress: function (cgc, ev, el, op) {
+        var masks = ['000.000.000-000', '00.000.000/0000-00'];
+        $('.cpfOuCnpj').mask((cgc.length > 14) ? masks[1] : masks[0], op);
+    }
+}
 
-    if(tamanho == 11){
-        $("#cpfcnpj").mask("999.999.99-99");
-    } else if(tamanho == 14){
-        $("#cpfcnpj").mask("99.999.999/9999-99");
-    }                   
-});
+$('.cpfOuCnpj').length > 11 ? $('.cpfOuCnpj').mask('00.000.000/0000-00', options) : $('.cpfOuCnpj').mask('000.000.000-00#', options);
 
   // ajustando foco
   var elem = this;
