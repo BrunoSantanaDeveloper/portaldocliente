@@ -86,9 +86,9 @@ class ClientWinthorController extends Controller
             //dd($response->object());
            foreach($response->object() as $clients){
             //dd($clients->cgcent);
-            dd($request->cgc);
-                if($clients->cgcent == $request->cgc){
 
+                if($clients->cgcent == $request->cgc){
+                    dd($request->cgc);
                     $response = [
                         'cliente' => $clients->cliente,
                         'codcli' => $clients->codcli
