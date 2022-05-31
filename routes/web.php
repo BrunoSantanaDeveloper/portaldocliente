@@ -33,6 +33,7 @@ require __DIR__.'/auth.php';
 Route::get('/clients', [ClientWinthorController::class, 'getClients'])->name('clients.getclients');
 Route::post('/client-register-validate', [ClientWinthorController::class, 'registerValidate'])->name('clients.client-register-validate');
 Route::get('/ar/{page}', [ReceivementWinthorController::class, 'getReceivement'])->name('receivement.get-receivement');
+Route::post('/ar', [ReceivementWinthorController::class, 'filterReceivement'])->name('receivement.filter-receivement');
 Route::get('/sales-order/{nota}', [ReceivementWinthorController::class, 'getItemOrder'])->name('receivement.get-item-order');
 /* Route::get('/approve_order/{nota}/{order}/{emitente}/{emitenteEmail}', [Orders::class, 'aproveOrder'])->name('orders.aprove-order');
  */Route::get('/approve_order/{nota}/{order}', [Orders::class, 'aproveOrder'])->name('orders.aprove-order');

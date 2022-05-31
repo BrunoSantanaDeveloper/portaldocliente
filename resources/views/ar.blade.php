@@ -20,6 +20,31 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title mb-4">Aprovar/Recusar Pedidos</h4>
+                <div class="row">
+
+                        <form action="{{ route('pedidos.aprovar') }}" method="POST">
+                            @csrf
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="pcompra" class="col-form-label">P. Compra</label>
+                                    <input class="form-control" type="text" name="pcompra" id="pcompra">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pvenda" class="col-form-label">P. Venda</label>
+                                    <input class="form-control" type="text" name="pvenda" id="pvenda">
+                                </div>
+                                <div class="form-group">
+                                    <label for="datafat" class="col-form-label">Data Fat.</label>
+                                    <input class="form-control" type="date" name="datafat" id="datafat">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary"><i class="mdi mdi-search"></i> Pesquisar</button>
+                                </div>
+                            </div>
+                        </form>
+
+
+                </div>
                 <div class="table-responsive">
                     <table class="table align-middle table-nowrap mb-0">
                         <thead class="table-light">
@@ -27,7 +52,7 @@
                                 <th class="align-middle">P. Compra</th>
                                 <th class="align-middle">P. Venda</th>
                                 <th class="align-middle">N.F.</th>
-                                <th class="align-middle">Data Fat</th>
+                                <th class="align-middle">Data Fat.</th>
                                 <th class="align-middle">Total</th>
                                 <th class="align-middle">Status</th>
                                 <th class="align-middle text-center">XML</th>
