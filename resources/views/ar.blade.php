@@ -38,9 +38,7 @@
                                 <input class="form-control" type="date" name="datafat" id="datafat">
                             </div>
                             <div class="col-3 form-group">
-                                <div class="mt-3">
-                                    <button type="submit" class="mt-3 btn btn-primary"><i class="mdi mdi-search"></i>Pesquisar</button>
-                                </div>
+                                <button type="submit" class="mt-8 btn btn-primary"><i class="mdi mdi-search"></i>Pesquisar</button>
                             </div>
                         </div>
                     </form>
