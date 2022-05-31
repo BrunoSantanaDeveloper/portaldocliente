@@ -25,19 +25,19 @@
                     <form class="mb-4" action="{{ route('receivement.filter-receivement') }}" method="POST">
                         @csrf
                         <div class="row">
-                            <div class="col-3 form-group">
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 form-group">
                                 <label for="pcompra" class="col-form-label">P. Compra</label>
                                 <input class="form-control" type="text" name="pcompra" id="pcompra">
                             </div>
-                            <div class="col-3 form-group">
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 form-group">
                                 <label for="pvenda" class="col-form-label">P. Venda</label>
                                 <input class="form-control" type="text" name="pvenda" id="pvenda">
                             </div>
-                            <div class="col-3 form-group">
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 form-group">
                                 <label for="datafat" class="col-form-label">Data Fat.</label>
                                 <input class="form-control" type="date" name="datafat" id="datafat">
                             </div>
-                            <div class="col-3 form-group">
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 form-group">
                                 <button type="submit" class="mt-8 btn btn-primary"><i class="mdi mdi-search"></i>Pesquisar</button>
                             </div>
                         </div>
