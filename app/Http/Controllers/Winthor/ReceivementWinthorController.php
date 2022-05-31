@@ -99,6 +99,7 @@ class ReceivementWinthorController extends Controller
 
     public function filterReceivement(Request $request)
     {
+        $page = 1;
 
         if (!Auth::check()) {
             return redirect('login');
