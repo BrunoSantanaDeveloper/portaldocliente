@@ -22,7 +22,7 @@
                 <h4 class="card-title mb-4">Aprovar/Recusar Pedidos</h4>
                 <div class="row">
 
-                        <form action="{{ route('pedidos.aprovar') }}" method="POST">
+                        <form action="{{ route('receivement.filter-receivement') }}" method="POST">
                             @csrf
                             <div class="col-12">
                                 <div class="form-group">
