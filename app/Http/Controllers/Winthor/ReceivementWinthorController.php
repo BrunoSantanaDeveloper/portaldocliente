@@ -108,15 +108,15 @@ class ReceivementWinthorController extends Controller
 
         $filter = '';
         if(isset($input['pcompra'])){
-            $filter .= ' and PEDIDO_CLIENTE = '.$input['pcompra'];
+            $filter .= " and PEDIDO_CLIENTE = '".$input['pcompra']."'";
         }
 
         if(isset($input['pvenda'])){
-            $filter .= ' and PEDIDO_VENDA = '.$input['pvenda'];
+            $filter .= " and PEDIDO_VENDA = '".$input['pvenda']."'";
         }
 
         if(isset($input['datafat'])){
-            $filter .= ' and DATA_FATURAMENTO = '.$input['datafat'];
+            $filter .= " and DATA_FATURAMENTO = '".$input['datafat']."'";
         }
 
         $user = Auth::user()->id;
