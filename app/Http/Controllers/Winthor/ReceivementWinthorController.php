@@ -117,7 +117,8 @@ class ReceivementWinthorController extends Controller
         }
 
         if(isset($input['datafat'])){
-            $filter .= " and DATA_FATURAMENTO = '".$input['datafat']."'";
+            $datafat = date('d/m/Y',strtotime($input['datafat']));
+            $filter .= " and DATA_FATURAMENTO = '".$datafat."'";
         }
 
         $user = Auth::user()->id;
