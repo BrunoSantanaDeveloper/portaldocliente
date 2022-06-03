@@ -93,7 +93,7 @@ class ClientWinthorController extends Controller
                         'cliente' => $clients->cliente,
                         'codcli' => $clients->codcli
                     ];
-                    return $response->object();
+                    return $response;
                 }
 
             }
