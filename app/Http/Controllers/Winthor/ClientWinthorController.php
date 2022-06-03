@@ -88,12 +88,12 @@ class ClientWinthorController extends Controller
             //dd($clients->cgcent);
 
                 if($clients->cgcent == $request->cgc){
-                    //dd($request->cgc);
-                    $response = [
+                    dd($response->object());
+                   /*  $response = [
                         'cliente' => $clients->cliente,
                         'codcli' => $clients->codcli
-                    ];
-                    return json_encode($response);
+                    ]; */
+                    //return json_encode($response);
                 }else{
                     return false;
                 }
