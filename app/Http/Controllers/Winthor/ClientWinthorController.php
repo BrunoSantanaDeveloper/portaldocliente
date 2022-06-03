@@ -88,7 +88,7 @@ class ClientWinthorController extends Controller
             //dd($clients->cgcent);
 
                 if($clients->cgcent == $request->cgc){
-                    dd($request->cgc);
+                    //dd($request->cgc);
                     $response = [
                         'cliente' => $clients->cliente,
                         'codcli' => $clients->codcli
