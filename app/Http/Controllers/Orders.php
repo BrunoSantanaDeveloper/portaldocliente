@@ -36,7 +36,6 @@ class Orders extends Controller
 
                 $message->from('noreply@portaldocliente.las.app.br', 'LOGÍSTICA - LAS');
                 $message->sender('noreply@portaldocliente.las.app.br', 'LOGÍSTICA - LAS');
-                $message->to('ti@lasdobrasil.com.br', 'TI - LAS');
                 $message->cc('logistica@lasdobrasil.com.br', 'LOGÍSTICA - LAS');
                 $message->cc('estoque@lasdobrasil.com.br', 'LOGÍSTICA - Estoque');
                 //$message->cc($dataMail['emitente'], $dataMail['emitenteEmail'] = null);
